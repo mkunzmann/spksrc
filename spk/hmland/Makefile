@@ -1,7 +1,7 @@
 SPK_NAME = hmland
 SPK_VERS = 1.0
 SPK_REV = 1
-SPK_ICON = src/hmcfgusb.png
+SPK_ICON = src/hmland.png
 DSM_UI_DIR = app
 
 DEPENDS = cross/libusb cross/hmcfgusb
