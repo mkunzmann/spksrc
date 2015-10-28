@@ -1,0 +1,5 @@
+bin:bin/flash-hmcfgusb
+bin:bin/flash-ota
+bin:bin/hmland
+bin:bin/hmsniff
+etc:etc/udev/rules.d/hmcfgusb.rules

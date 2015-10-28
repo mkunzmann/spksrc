@@ -1,0 +1,23 @@
+From f84c8479c3db021ea06397fc44d58710acf947d5 Mon Sep 17 00:00:00 2001
+From: Michael Kunzmann <michael.kunzmann@gmail.com>
+Date: Wed, 28 Oct 2015 20:22:57 +0100
+Subject: [PATCH] spk: remove LDFLAGS from Makefile
+
+Remove the LDFLAGS from Makefile to build for Synology.
+---
+ Makefile | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index ec23439..b8b05f6 100644
+--- Makefile
++++ Makefile
+@@ -1,5 +1,4 @@
+ CFLAGS=-MMD -O2 -Wall -I/opt/local/include -g
+-LDFLAGS=-L/opt/local/lib
+ LDLIBS=-lusb-1.0 -lrt
+ CC=gcc
+ 
+-- 
+2.1.4
+
