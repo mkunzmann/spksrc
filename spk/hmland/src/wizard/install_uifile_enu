@@ -1,0 +1,19 @@
+[{
+    "step_title": "Basic configuration",
+    "items": [{
+        "type": "textfield",
+        "desc": "Port",
+        "subitems": [{
+            "key": "wizard_port",
+            "desc": "Http port",
+            "defaultValue": "12340",
+            "validator": {
+                "allowBlank": false,
+                "regex": {
+                    "expr": "/[0-9]+/",
+                    "errorText": "should be a number"
+                }
+            }
+        }]
+    }
+}]

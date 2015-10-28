@@ -1,0 +1,44 @@
+SPK_NAME = hmland
+SPK_VERS = 0.101
+SPK_REV = 1
+SPK_ICON = src/hmland.png
+DSM_UI_DIR = app
+
+DEPENDS = cross/busybox cross/libusb cross/hmcfgusb
+
+MAINTAINER = SynoCommunity
+DESCRIPTION = HM CFG USB tools
+ADMIN_PORT =
+RELOAD_UI =
+DISPLAY_NAME = hmland
+CHANGELOG = "first release"
+
+HOMEPAGE = https://github.com/JSurf/hmcfgusb
+LICENSE  =
+
+WIZARDS_DIR = src/wizard/
+
+INSTALLER_SCRIPT = src/installer.sh
+SSS_SCRIPT       = src/dsm-control.sh
+FWPORTS          = src/${SPK_NAME}.sc
+
+INSTALL_PREFIX = /usr/local/$(SPK_NAME)
+
+POST_STRIP_TARGET = hmland_extra_install
+
+BUSYBOX_CONFIG = usrmng
+ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
+
+include ../../mk/spksrc.spk.mk
+
+.PHONY: hmland_extra_install
+hmland_extra_install:
+	install -m 755 -d $(STAGING_DIR)/var
+	install -m 755 -d $(STAGING_DIR)/app
+	install -m 644 src/app/config $(STAGING_DIR)/app/config
+	install -m 755 -d $(STAGING_DIR)/app/images
+	for size in 16 24 32 48 72 ; \
+	do \
+	    convert $(SPK_ICON) -thumbnail $${size}x$${size} \
+	            $(STAGING_DIR)/app/images/$(SPK_NAME)-$${size}.png ; \
+	done
