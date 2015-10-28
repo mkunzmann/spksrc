@@ -1,8 +1,8 @@
 PKG_NAME = hmcfgusb
 PKG_EXT = tar.gz
 PKG_DOWNLOAD_METHOD = git
-PKG_GIT_HASH = 4d15b8c
-PKG_DIST_SITE = https://github.com/JSurf/hmcfgusb.git
+PKG_GIT_HASH = 7c54cb5
+PKG_DIST_SITE = https://git.zerfleddert.de/git/hmcfgusb
 PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
 PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
 
