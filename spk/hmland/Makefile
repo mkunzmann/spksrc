@@ -24,17 +24,17 @@ FWPORTS          = src/${SPK_NAME}.sc
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
-#POST_STRIP_TARGET = transmission_extra_install
+POST_STRIP_TARGET = hmland_extra_install
 
 BUSYBOX_CONFIG = usrmng
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
 include ../../mk/spksrc.spk.mk
 
-.PHONY: transmission_extra_install
-transmission_extra_install:
+.PHONY: hmland_extra_install
+hmland_extra_install:
 	install -m 755 -d $(STAGING_DIR)/var
-	install -m 644 src/settings.json $(STAGING_DIR)/var/settings.json
+	# install -m 644 src/settings.json $(STAGING_DIR)/var/settings.json
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
 	install -m 755 -d $(STAGING_DIR)/app/images
