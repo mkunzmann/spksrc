@@ -10,6 +10,7 @@ SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 PATH="${INSTALL_DIR}/bin:${PATH}"
 CFG_FILE="${INSTALL_DIR}/etc/${PACKAGE}"
 TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
+USER="${PACKAGE}"
 
 SERVICETOOL="/usr/syno/bin/servicetool"
 FWPORTS="/var/packages/${PACKAGE}/scripts/${PACKAGE}.sc"
@@ -69,6 +70,9 @@ postinst ()
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
 
+    #Create var
+    mkdir ${INSTALL_DIR}/var
+
     # Create user
     adduser -h ${INSTALL_DIR}/var -g "${DNAME} User" -G ${GROUP} -s /bin/sh -S -D ${USER}
 
@@ -81,10 +85,10 @@ postinst ()
         echo "noop"
     fi
 
-    # syno_group_create
+    syno_group_create
 
     # Correct the files ownership
-    # chown -R ${USER}:root ${SYNOPKG_PKGDEST}
+    chown -R ${USER}:root ${SYNOPKG_PKGDEST}
 
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
