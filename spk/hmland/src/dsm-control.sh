@@ -15,8 +15,8 @@ PID_FILE="${INSTALL_DIR}/var/hmland.pid"
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p 1234 -D"
-    echo "$(pidof hmland)" > ${PID_FILE}"
+    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p 12340 -D"
+    echo "$(pidof hmland)" > ${PID_FILE}
 }
 
 stop_daemon ()
