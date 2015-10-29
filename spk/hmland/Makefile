@@ -4,7 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/hmland.png
 DSM_UI_DIR = app
 
-DEPENDS = cross/libusb cross/hmcfgusb
+DEPENDS = cross/busybox cross/libusb cross/hmcfgusb
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = HM CFG USB tools
