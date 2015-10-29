@@ -1,16 +1,16 @@
-SPK_NAME = hmcfgusb
+SPK_NAME = hmland
 SPK_VERS = 1.0
 SPK_REV = 1
 SPK_ICON = src/hmcfgusb.png
 DSM_UI_DIR = app
 
-DEPENDS = cross/libusb cross/$(SPK_NAME)
+DEPENDS = cross/libusb cross/hmcfgusb
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = HM CFG USB tools
-ADMIN_PORT = 
-RELOAD_UI = 
-DISPLAY_NAME = hmcfgusb
+ADMIN_PORT =
+RELOAD_UI =
+DISPLAY_NAME = hmland
 CHANGELOG = "first release"
 
 HOMEPAGE = https://github.com/JSurf/hmcfgusb
