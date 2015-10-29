@@ -11,6 +11,7 @@ PATH="${INSTALL_DIR}/bin:${PATH}"
 CFG_FILE="${INSTALL_DIR}/etc/${PACKAGE}"
 TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
 USER="${PACKAGE}"
+GROUP="users"
 
 SERVICETOOL="/usr/syno/bin/servicetool"
 FWPORTS="/var/packages/${PACKAGE}/scripts/${PACKAGE}.sc"
