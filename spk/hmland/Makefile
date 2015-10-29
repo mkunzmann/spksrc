@@ -26,8 +26,8 @@ INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
 #POST_STRIP_TARGET = transmission_extra_install
 
-#BUSYBOX_CONFIG = usrmng
-#ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
+BUSYBOX_CONFIG = usrmng
+ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
 include ../../mk/spksrc.spk.mk
 
