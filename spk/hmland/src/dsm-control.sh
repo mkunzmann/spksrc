@@ -8,14 +8,15 @@ DNAME="hmcfgusb"
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PYTHON_DIR="/usr/local/python"
 PATH="${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${PATH}"
-USER="hmcfgusb"
+USER="root"
 HMLAND="${INSTALL_DIR}/bin/hmland"
-PID_FILE="${INSTALL_DIR}/var/hmland.pid"
+PID_FILE="${INSTALL_DIR}/hmland.pid"
+LOGFILE="/var/log/${PACKAGE}.log"
 
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p 12340 -D"
+    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p 12340 -d -L ${LOGFILE}"
     echo "$(pidof hmland)" > ${PID_FILE}
 }
 
@@ -45,6 +46,11 @@ wait_for_status ()
         sleep 1
     done
     return 1
+}
+
+log() {
+    echo "${LOGFILE}"
+    exit 0
 }
 
 
@@ -82,6 +88,9 @@ case $1 in
             echo ${DNAME} is not running
             exit 1
         fi
+        ;;
+    log)
+        log
         ;;
     *)
         exit 1
