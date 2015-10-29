@@ -1,23 +1,24 @@
 #!/bin/sh
 
 # Package
-PACKAGE="hmcfgusb"
-DNAME="hmcfgusb"
+PACKAGE="hmland"
+DNAME="hmland"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PYTHON_DIR="/usr/local/python"
 PATH="${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${PATH}"
 USER="root"
-HMLAND="${INSTALL_DIR}/bin/hmland"
-PID_FILE="${INSTALL_DIR}/hmland.pid"
+HMLAND="${INSTALL_DIR}/bin/${PACKAGE}"
+PID_FILE="${INSTALL_DIR}/${PACKAGE}.pid"
 LOGFILE="/var/log/${PACKAGE}.log"
 
+. ${INSTALL_DIR}/etc/${PACKAGE}
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p 12340 -d -L ${LOGFILE}"
-    echo "$(pidof hmland)" > ${PID_FILE}
+    su - ${USER} -c "PATH=${PATH} ${HMLAND} -p ${PORT} -d -L ${LOGFILE}"
+    echo "$(pidof ${PACKAGE})" > ${PID_FILE}
 }
 
 stop_daemon ()

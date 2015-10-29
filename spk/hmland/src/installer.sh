@@ -1,16 +1,14 @@
 #!/bin/sh
 
 # Package
-PACKAGE="hmcfgusb"
-DNAME="hmcfgusb"
+PACKAGE="hmland"
+DNAME="hmland"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 PATH="${INSTALL_DIR}/bin:${PATH}"
-USER="hmcfgusb"
-GROUP="users"
-#CFG_FILE="${INSTALL_DIR}/var/settings.json"
+CFG_FILE="${INSTALL_DIR}/etc/${PACKAGE}"
 TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
 
 SERVICETOOL="/usr/syno/bin/servicetool"
@@ -76,16 +74,17 @@ postinst ()
 
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
         # Edit the configuration according to the wizard
+        echo "PORT=${wizard_port}" > ${CFG_FILE}
         # sed -i -e "s|@download_dir@|${wizard_download_dir:=/volume1/downloads}|g" ${CFG_FILE}
         # sed -i -e "s|@username@|${wizard_username:=admin}|g" ${CFG_FILE}
         # sed -i -e "s|@password@|${wizard_password:=admin}|g" ${CFG_FILE}
         echo "noop"
     fi
 
-    syno_group_create
+    # syno_group_create
 
     # Correct the files ownership
-    chown -R ${USER}:root ${SYNOPKG_PKGDEST}
+    # chown -R ${USER}:root ${SYNOPKG_PKGDEST}
 
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null

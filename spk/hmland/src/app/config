@@ -1,9 +1,9 @@
 {
     ".url": {
-        "com.synocommunity.packages.hmcfgusb": {
-            "title": "hmcfgusb",
-            "desc": "hmcfgusb daemon",
-            "icon": "images/hmcfgusb-{0}.png",
+        "com.synocommunity.packages.hmland": {
+            "title": "hmland",
+            "desc": "hmland daemon",
+            "icon": "images/hmland-{0}.png",
             "type": "url",
             "protocol": "http",
             "port": "12340",
