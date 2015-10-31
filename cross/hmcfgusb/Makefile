@@ -9,7 +9,7 @@ PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
 DEPENDS = cross/libusb
 
 HOMEPAGE = https://github.com/JSurf/hmcfgusb
-COMMENT  = 
+COMMENT  =
 LICENSE  = MIT
 
 CONFIGURE_TARGET = noop
@@ -18,14 +18,9 @@ INSTALL_TARGET = myInstall
 
 include ../../mk/spksrc.cross-cc.mk
 
-# .PHONY: myConfigure
-#myConfigure:
-#        $(RUN) ./config.sh --enable WITH_SSL --disable HAVE_DVBAPI
-
 .PHONY: myCompile
 myCompile:
-	$(RUN) $(MAKE) 
-# CROSS=$(shell echo $(ENV) | sed 's/ /\n/g' | sed -n -e 's/CC=\(.*-\)gcc/\1/p') CONF_DIR=$(INSTALL_PREFIX)/etc USE_LIBUSB=1INSTALL_TARGET = myInstall
+	$(RUN) $(MAKE)
 
 .PHONY: myInstall
 myInstall:
