@@ -76,10 +76,8 @@ postinst ()
 
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
         # Edit the configuration according to the wizard
-        echo "PORT=${wizard_port}" > ${CFG_FILE}
-        # sed -i -e "s|@download_dir@|${wizard_download_dir:=/volume1/downloads}|g" ${CFG_FILE}
-        # sed -i -e "s|@username@|${wizard_username:=admin}|g" ${CFG_FILE}
-        # sed -i -e "s|@password@|${wizard_password:=admin}|g" ${CFG_FILE}
+        echo "PORT=${wizard_port:=12340}" > ${CFG_FILE}
+        sed -i -e "s|12340|${wizard_port:=12340}|g" ${FWPORTS}
         echo "noop"
     fi
 
@@ -90,6 +88,9 @@ postinst ()
 
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
+
+    # Install udev rules
+    cp "${INSTALL_DIR}/etc/udev/rules.d/hmcfgusb.rules" /lib/udev/rules.d/99-hmcfgusb.rules
 
     exit 0
 }
