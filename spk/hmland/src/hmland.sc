@@ -1,6 +1,6 @@
-[hmcfgusb]
-title="hmfcgusb"
-desc="hmcfgusb"
+[hmland]
+title="hmland"
+desc="hmland"
 port_forward="yes"
-dst.ports="1234/tcp,udp"
+dst.ports="12340/tcp,udp"
 

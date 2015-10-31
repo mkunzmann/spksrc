@@ -2,7 +2,7 @@
     ".url": {
         "com.synocommunity.packages.hmland": {
             "title": "hmland",
-            "desc": "hmland daemon",
+            "desc": "hmland daemon to use the HM-CFG-USB stick.",
             "icon": "images/hmland-{0}.png",
             "type": "url",
             "protocol": "http",

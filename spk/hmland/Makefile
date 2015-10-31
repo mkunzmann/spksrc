@@ -1,5 +1,5 @@
 SPK_NAME = hmland
-SPK_VERS = 1.0
+SPK_VERS = 0.101
 SPK_REV = 1
 SPK_ICON = src/hmland.png
 DSM_UI_DIR = app
@@ -34,7 +34,6 @@ include ../../mk/spksrc.spk.mk
 .PHONY: hmland_extra_install
 hmland_extra_install:
 	install -m 755 -d $(STAGING_DIR)/var
-	# install -m 644 src/settings.json $(STAGING_DIR)/var/settings.json
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
 	install -m 755 -d $(STAGING_DIR)/app/images

@@ -44,22 +44,6 @@ syno_group_remove ()
 
 preinst ()
 {
-    if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
-        #if [ ! -d "${wizard_download_dir}" ]; then
-        #    echo "Download directory ${wizard_download_dir} does not exist."
-        #    exit 1
-        #fi
-        #if [ -n "${wizard_watch_dir}" -a ! -d "${wizard_watch_dir}" ]; then
-        #    echo "Watch directory ${wizard_watch_dir} does not exist."
-        #    exit 1
-        #fi
-        #if [ -n "${wizard_incomplete_dir}" -a ! -d "${wizard_incomplete_dir}" ]; then
-        #    echo "Incomplete directory ${wizard_incomplete_dir} does not exist."
-        #    exit 1
-        #fi
-        echo "noop"
-    fi
-
     exit 0
 }
 
@@ -78,13 +62,12 @@ postinst ()
         # Edit the configuration according to the wizard
         echo "PORT=${wizard_port:=12340}" > ${CFG_FILE}
         sed -i -e "s|12340|${wizard_port:=12340}|g" ${FWPORTS}
-        echo "noop"
     fi
 
     syno_group_create
 
     # Correct the files ownership
-    chown -R ${USER}:root ${SYNOPKG_PKGDEST}
+    chown -R ${USER}:${GROUP} ${SYNOPKG_PKGDEST}
 
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
