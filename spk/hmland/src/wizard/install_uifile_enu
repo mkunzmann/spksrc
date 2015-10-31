@@ -6,7 +6,7 @@
         "subitems": [{
             "key": "wizard_port",
             "desc": "Http port",
-            "defaultValue": "12340",
+            "defaultValue": "1000",
             "validator": {
                 "allowBlank": false,
                 "regex": {
