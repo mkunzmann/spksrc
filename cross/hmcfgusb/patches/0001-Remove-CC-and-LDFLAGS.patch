@@ -1,0 +1,24 @@
+From 9a0eedd3077b6d00c1987db150cc1dacd99f3ea5 Mon Sep 17 00:00:00 2001
+From: Michael Kunzmann <michael.kunzmann@gmx.net>
+Date: Sun, 1 Nov 2015 23:04:00 +0100
+Subject: [PATCH] Remove CC and LDFLAGS
+
+---
+ Makefile | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index bd8fbf7..dad9108 100644
+--- Makefile
++++ Makefile
+@@ -1,7 +1,5 @@
+ CFLAGS=-MMD -O2 -Wall -I/opt/local/include -g
+-LDFLAGS=-L/opt/local/lib
+ LDLIBS=-lusb-1.0 -lrt
+-CC=gcc
+ 
+ HMLAN_OBJS=hmcfgusb.o hmland.o util.o
+ HMSNIFF_OBJS=hmcfgusb.o hmsniff.o
+-- 
+2.4.9 (Apple Git-60)
+
