@@ -1,19 +1,20 @@
 SPK_NAME = hmland
 SPK_VERS = 0.101
-SPK_REV = 1
+SPK_REV = 3
 SPK_ICON = src/hmland.png
 DSM_UI_DIR = app
 
 DEPENDS = cross/busybox cross/libusb cross/hmcfgusb
 
 MAINTAINER = SynoCommunity
-DESCRIPTION = HM CFG USB tools
+DESCRIPTION = HMLAND is an application, which emulates the HomeMatic LAN configuration adapter-protocol to make it possible to use the HM-CFG-USB in Fhem or as a lan configuration tool for the CCU or the HomeMatic windows configuration software, also supporting devices using AES-signing like KeyMatic. The HM-CFG-USB can be used to send and receive BidCoS-Packets to control HomeMatic home automation devices like remote controllable sockets, switches, sensors, ...
+#DESCRIPTION = HMLAND is an application, which emulates the HomeMatic LAN configuration adapter-protocol
 ADMIN_PORT =
 RELOAD_UI =
 DISPLAY_NAME = hmland
-CHANGELOG = "first release"
+CHANGELOG = "Make log dir configurable"
 
-HOMEPAGE = https://github.com/JSurf/hmcfgusb
+HOMEPAGE = http://git.zerfleddert.de/cgi-bin/gitweb.cgi/hmcfgusb
 LICENSE  =
 
 WIZARDS_DIR = src/wizard/

@@ -2,16 +2,31 @@
     "step_title": "Basic configuration",
     "items": [{
         "type": "textfield",
-        "desc": "Port",
+        "desc": "http port for hmland to listen on. Needs to greater than 1024.",
         "subitems": [{
             "key": "wizard_port",
             "desc": "Http port",
-            "defaultValue": "1000",
+            "defaultValue": "1234",
             "validator": {
                 "allowBlank": false,
                 "regex": {
                     "expr": "/[0-9]+/",
                     "errorText": "should be a number"
+                }
+            }
+        }]
+    }, {
+        "type": "textfield",
+        "desc": "Log file. Put on a USB Volume if you need to have the drives sleep. Leave empty to disable",
+        "subitems": [{
+            "key": "wizard_log_file",
+            "desc": "Log File",
+            "defaultValue": "/${INSTALL_DIR}/var/${PACKAGE}.log",
+            "validator": {
+                "allowBlank": true,
+                "regex": {
+                    "expr": "/^\\\//",
+                    "errorText": "Path should begin with /"
                 }
             }
         }]

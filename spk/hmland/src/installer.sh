@@ -60,8 +60,9 @@ postinst ()
 
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
         # Edit the configuration according to the wizard
-        echo "PORT=${wizard_port:=1000}" > ${CFG_FILE}
-        sed -i -e "s|1000|${wizard_port:=1000}|g" ${FWPORTS}
+        echo "PORT=${wizard_port:=1234}" > ${CFG_FILE}
+        echo "LOGFILE=${wizard_log_file:=/dev/null}" >> ${CFG_FILE}
+        sed -i -e "s|1000|${wizard_port:=1234}|g" ${FWPORTS}
     fi
 
     syno_group_create
